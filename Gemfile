@@ -5,7 +5,9 @@ gem 'sqlite3'
 gem 'puma'
 gem 'rails_admin'
 gem 'pg'
-gem "devise"
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
