@@ -13,7 +13,17 @@
 <div class="results">
 	<ul class="resultslist">
 		<% @markets.each do |market| %>
-		  <li><%= link_to market.name, market %></li>
+		  <li class="row">
+		  	<span class="span3">
+		  		<%= link_to market.name, market %>
+		  	</span>
+		  	<span class="span4 address">
+		  		<%= market.street %>
+		  	</span>
+		  	<span class="span4 schedule">
+		  		<%= market.schedule %>
+		  	</span>
+		  	</li>
 		  <hr />
 		<% end %>
 	</ul>
