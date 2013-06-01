@@ -6,6 +6,7 @@ gem 'puma'
 gem 'rails_admin'
 gem 'pg'
 gem "devise"
+gem 'bootstrap-sass'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
