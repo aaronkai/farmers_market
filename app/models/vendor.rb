@@ -3,5 +3,14 @@ class Vendor < ActiveRecord::Base
   has_many :participations
   has_many :markets, through: :participations
   
-  attr_accessible :name, :user_id
+  attr_accessible :name, :user_id, :phone, :description, :products
+  
+  def self.import
+    CSV.read(Rails.root + "db/vendors.csv")[1 .. -1].each do |fmid, mname, vname, phone, desc, products|
+      market = Market.where(fmid: fmid).first
+      vendor = where(name: vname).first_or_create(phone: phone, description: desc, products: products)
+      
+      market.participations.where(vendor_id: vendor.id).first_or_create
+    end
+  end
 end

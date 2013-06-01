@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
     t.string   "zip"
     t.string   "lat"
     t.string   "lon"
+    t.text     "schedule"
     t.boolean  "credit"
     t.boolean  "wic"
     t.boolean  "wcash"
@@ -93,8 +94,11 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
   create_table "vendors", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.text     "description"
+    t.text     "products"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

@@ -16,6 +16,8 @@ class AddStuff < ActiveRecord::Migration
       t.string :zip
       t.string :lat
       t.string :lon
+      t.text :schedule
+      
       t.boolean :credit
       t.boolean :wic
       t.boolean :wcash
@@ -42,6 +44,9 @@ class AddStuff < ActiveRecord::Migration
     create_table :vendors do |t|
       t.belongs_to :user
       t.string :name
+      t.string :phone
+      t.text :description
+      t.text :products
       
       t.timestamps
     end
