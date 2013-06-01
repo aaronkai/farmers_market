@@ -4,5 +4,9 @@ FarmersMarket::Application.routes.draw do
 
   root :to => 'markets#index'
   
-  resources :markets, :vendors
+  resources :markets do
+  	get :list, on: :collection
+  end
+
+  resources :vendors
 end
