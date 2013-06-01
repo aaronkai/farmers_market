@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130601145702) do
+ActiveRecord::Schema.define(:version => 20130601152715) do
+
+  create_table "markets", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.boolean  "ebt"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "participations", :force => true do |t|
+    t.integer "market_id"
+    t.integer "vendor_id"
+  end
+
+  create_table "presences", :force => true do |t|
+    t.integer "market_id"
+    t.integer "vendor_id"
+    t.date    "available"
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
@@ -25,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20130601145702) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer "user_id"
+    t.integer "market_id"
+    t.boolean "sms"
+    t.boolean "email"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -43,5 +69,12 @@ ActiveRecord::Schema.define(:version => 20130601145702) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vendors", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
