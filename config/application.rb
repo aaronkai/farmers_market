@@ -17,7 +17,17 @@ module FarmersMarket
 
     # Custom directories with classes and modules you want to be autoloadable.
     config.autoload_paths += %W(#{config.root}/lib)
-
+    
+    if ENV['SMTP_URL'].present?
+      smtp_uri           = URI.parse(ENV["SMTP_URL"])
+      config.action_mailer.delivery_method = :smtp
+      config.action_mailer.smtp_settings   = {
+        :address              => smtp_uri.host,
+        :port                 => smtp_uri.port || 25,
+        :enable_starttls_auto => false
+      }
+    end
+    
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]

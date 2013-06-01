@@ -34,14 +34,19 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "notifications", :force => true do |t|
+    t.integer "subscription_id"
+    t.integer "presence_id"
+  end
+
   create_table "participations", :force => true do |t|
     t.integer "market_id"
     t.integer "vendor_id"
   end
 
   create_table "presences", :force => true do |t|
-    t.integer "market_id"
-    t.integer "vendor_id"
+    t.integer "participation_id"
+    t.text    "message"
     t.date    "date"
   end
 

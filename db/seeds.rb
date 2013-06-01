@@ -15,3 +15,5 @@ vendor = Vendor.create(name: "Joe's Veggies", user_id: v_user.id)
 vendor.markets << Market.first
 
 user.participations << vendor.participations.first
+
+vendor.participations.first.presences.create(message: "Will hack for food", date: Date.today)

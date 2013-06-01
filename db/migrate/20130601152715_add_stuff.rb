@@ -25,8 +25,13 @@ class AddStuff < ActiveRecord::Migration
       t.timestamps
     end
     
+    create_table :notifications do |t|
+      t.belongs_to :subscription, :presence
+    end
+    
     create_table :presences do |t|
-      t.belongs_to :market, :vendor
+      t.belongs_to :participation
+      t.text :message
       t.date :date
     end
     
