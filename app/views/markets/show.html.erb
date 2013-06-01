@@ -8,6 +8,7 @@
 	<div class="span6">
 		<%= @market.street %><br />
 		<%= @market.city %>, <%= @market.state %> <%= @market.zip %><br />
+		<%= @market.schedule %><br />
 	</div>
 
 	<div class="span1"></div>
@@ -17,8 +18,11 @@
 		<ul class="marketlist">
 			<% @market.vendors.each do |vendor| %>
 			<li>
-				<button type="button" class="btn btn-primary" data-toggle="button">Subscribe</button>
-				<%= link_to vendor.name, vendor %></li>
+				<button type="button" class="btn btn-primary" data-toggle="button">
+					Subscribe
+				</button>
+				<%= link_to vendor.name, vendor %>
+			</li>
 			<% end %>
 		</ul>
 	</div>
