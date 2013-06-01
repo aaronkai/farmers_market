@@ -5,9 +5,22 @@ class AddStuff < ActiveRecord::Migration
     end
 
     create_table :markets do |t|
+      t.integer :fmid
       t.string :name
       t.string :address
-      t.boolean :ebt
+      t.string :url
+      t.string :street
+      t.string :city
+      t.string :county
+      t.string :state
+      t.string :zip
+      t.string :lat
+      t.string :lon
+      t.boolean :credit
+      t.boolean :wic
+      t.boolean :wcash
+      t.boolean :sfmnp
+      t.boolean :snap
       
       t.timestamps
     end
