@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
-gem 'sqlite3'
 gem 'puma'
 gem 'rails_admin'
-gem 'pg'
+#gem 'pg'
+gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
