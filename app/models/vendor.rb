@@ -8,7 +8,7 @@ class Vendor < ActiveRecord::Base
   
   def self.import
     CSV.read(Rails.root + "db/vendors.csv")[1 .. -1].each do |fmid, mname, vname, phone, desc, products|
-      market = Market.where(fmid: fmid).first
+      next unless market = Market.where(fmid: fmid).first
       vendor = where(name: vname).first_or_create(phone: phone, description: desc, products: products)
       
       market.participations.where(vendor_id: vendor.id).first_or_create
