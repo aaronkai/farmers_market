@@ -15,9 +15,11 @@
 	<div class="span5 vendors_here">
 		<h4>Vendors at this market</h4>
 		<ul class="marketlist">
-			<% @market.vendors.each do |vendor| %>
+			<% @market.participations.each do |participation| %>
+			<%- vendor = participation.vendor %>
 			<li>
-				<button type="button" class="btn btn-primary" data-toggle="button">Subscribe</button>
+			  <button style="<%= "display:none" unless participation.subscribed?(current_user) %>" type="button" class="btn btn-primary unsubscribe" data-toggle="button" data-id="<%= participation.id %>">Unsubscribe</button>
+				<button style="<%= "display:none" if participation.subscribed?(current_user) %>" type="button" class="btn btn-primary subscribe" data-toggle="button" data-id="<%= participation.id %>">Subscribe</button>
 				<%= link_to vendor.name, vendor %></li>
 			<% end %>
 		</ul>

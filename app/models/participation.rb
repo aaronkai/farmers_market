@@ -4,4 +4,9 @@ class Participation < ActiveRecord::Base
   
   has_many :presences
   has_many :subscriptions
+  has_many :users, through: :subscriptions
+  
+  def subscribed?(user)
+    users.include? user
+  end
 end

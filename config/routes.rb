@@ -8,5 +8,5 @@ FarmersMarket::Application.routes.draw do
   	get :list, on: :collection
   end
 
-  resources :vendors
+  resources :subscriptions, :vendors
 end
