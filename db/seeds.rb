@@ -8,7 +8,8 @@
 
 user = User.create(email: 'test@me.com', password: 'testme', password_confirmation: 'testme')
 
-Market.create(name: 'Test Market', address: '1 Main St, 28801', ebt: true)
+Market.import
+# Market.create(name: 'Test Market', address: '1 Main St, 28801')
 Vendor.create(name: "Joe's Veggies", user_id: user.id)
 
 Vendor.first.markets << Market.first

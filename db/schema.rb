@@ -14,9 +14,22 @@
 ActiveRecord::Schema.define(:version => 20130601152715) do
 
   create_table "markets", :force => true do |t|
+    t.integer  "fmid"
     t.string   "name"
     t.string   "address"
-    t.boolean  "ebt"
+    t.string   "url"
+    t.string   "street"
+    t.string   "city"
+    t.string   "county"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "lat"
+    t.string   "lon"
+    t.boolean  "credit"
+    t.boolean  "wic"
+    t.boolean  "wcash"
+    t.boolean  "sfmnp"
+    t.boolean  "snap"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
