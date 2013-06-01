@@ -1,0 +1,4 @@
+<%= debug @vendor %>
+<% @vendor.markets.each do |market| %>
+<li><%= link_to market.name, market %></li>
+<% end %>
