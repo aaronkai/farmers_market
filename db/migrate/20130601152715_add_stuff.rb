@@ -27,13 +27,11 @@ class AddStuff < ActiveRecord::Migration
     
     create_table :presences do |t|
       t.belongs_to :market, :vendor
-      t.date :available
+      t.date :date
     end
     
     create_table :subscriptions do |t|
-      t.belongs_to :user, :market
-      t.boolean :sms
-      t.boolean :email
+      t.belongs_to :user, :participation
     end
     
     create_table :vendors do |t|

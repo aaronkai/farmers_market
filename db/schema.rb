@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
   create_table "presences", :force => true do |t|
     t.integer "market_id"
     t.integer "vendor_id"
-    t.date    "available"
+    t.date    "date"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -60,9 +60,7 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
 
   create_table "subscriptions", :force => true do |t|
     t.integer "user_id"
-    t.integer "market_id"
-    t.boolean "sms"
-    t.boolean "email"
+    t.integer "participation_id"
   end
 
   create_table "users", :force => true do |t|
