@@ -12,43 +12,28 @@ getLocation();
   </li>
 </ul>
 
-<div id="mapholder"></div>
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition,showError);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-  }
 
-function showPosition(position)
-  {
-  var latlon=position.coords.latitude+","+position.coords.longitude;
-
-  var img_url="http://maps.googleapis.com/maps/api/staticmap?center="
-  +latlon+"&zoom=14&size=800x600&sensor=false";
-  document.getElementById("mapholder").innerHTML="<img src='"+img_url+"'>";
-  }
-
-function showError(error)
-  {
-  switch(error.code) 
-    {
-    case error.PERMISSION_DENIED:
-      x.innerHTML="User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML="Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML="The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML="An unknown error occurred."
-      break;
-    }
-  }
+<script type="text/javascript">
+      function initialize() {
+      	getLocation();
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+			
+			function showmap(position){
+				var mapOptions = {
+          center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        placeMarker(35.5919, -82.5502, "French Broad Food Coop", map);	
+        placeMarker(35.5937, -82.5486, "Asheville City Market", map);	    
+        placeMarker(35.6024, -82.5542, "Greenlife Sunday Afternoon Local Market", map);	
+				placeMarker(35.5766, -82.5492, "Mission Hospital Tailgate market", map);	
+        placeMarker(35.5548, -82.5978, "WNC Farmers Market", map);	    
+			}
 </script>
+    
+    <div id="map-canvas" style= "height: 600px; width: 600px;"></div>
+    <div id="demo"></div>
+   
