@@ -7,7 +7,14 @@
   </li>
 </ul>
 
-In markets controller:
-<% @markets.each do |market| %>
-  <li><%= link_to market.name, market %></li>
-<% end %>
+<h2>Showing markets near [city]</h2>
+<br />
+
+<div class="results">
+	<ul class="marketlist">
+		<% @markets.each do |market| %>
+		  <li><%= link_to market.name, market %></li>
+		  <hr />
+		<% end %>
+	</ul>
+</div>

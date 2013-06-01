@@ -1,0 +1,26 @@
+<%= link_to('< Back to market list', list_markets_path) %>
+
+<h3><%= @market.name %></h3>
+
+
+<div class="row details_page">
+
+	<div class="span6">
+		<%= @market.street %><br />
+		<%= @market.city %>, <%= @market.state %> <%= @market.zip %><br />
+	</div>
+
+	<div class="span1"></div>
+
+	<div class="span5 vendors_here">
+		<h4>Vendors at this market</h4>
+		<ul class="marketlist">
+			<% @market.vendors.each do |vendor| %>
+			<li>
+				<button type="button" class="btn btn-primary" data-toggle="button">Subscribe</button>
+				<%= link_to vendor.name, vendor %></li>
+			<% end %>
+		</ul>
+	</div>
+
+</div>

@@ -10,3 +10,36 @@ body { padding-top: 60px; }
 	float: right;
 }
 */
+
+
+ul.marketlist {
+	list-style-type: none;
+	margin: 0; 
+	padding: 0;
+}
+
+ul.marketlist > li {
+	padding: 1em;
+}
+
+ul.marketlist > li:hover {
+	background-color: #fff;
+	cursor: pointer;
+}
+
+ul.marketlist > hr {
+	margin: 0;
+}
+
+div.results {
+	background-color: #eee;
+}
+
+div.details_page {
+	margin-bottom: 4em;
+}
+
+div.vendors_here {
+	padding: 1em;
+	background-color: #eee;
+}
