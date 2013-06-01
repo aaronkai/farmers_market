@@ -1,8 +1,28 @@
 <script>
-$(document).ready(function(){
-getLocation();
-});
+  function showmap(position){
+        var mapOptions = {
+          center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+          zoom: 11,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        <% @markets.each do |market| %>
+          placeMarker(<%= market.lon %>, <%= market.lat %>, "<%= market.name %>", map);
+        <% end %>
+      }
+      
+  $(document).ready(function(){
+    x = document.getElementById("demo");
+      if (navigator.geolocation)
+        {
+        navigator.geolocation.getCurrentPosition(showmap);
+        }
+      else{x.innerHTML="Geolocation is not supported by this browser.";}
+  });
+
 </script>
+
 <ul class="nav nav-tabs">
   <li class="active">
     <%= link_to('Map view', root_path, :data => {:toggle=>"tab"}) %>
@@ -13,26 +33,6 @@ getLocation();
 </ul>
 
 
-<script type="text/javascript">
-      function initialize() {
-      	getLocation();
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-			
-			function showmap(position){
-				var mapOptions = {
-          center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
-          zoom: 11,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        placeMarker(35.5919, -82.5502, "French Broad Food Coop", map);	
-        placeMarker(35.5937, -82.5486, "Asheville City Market", map);	    
-        placeMarker(35.6024, -82.5542, "Greenlife Sunday Afternoon Local Market", map);	
-				placeMarker(35.5766, -82.5492, "Mission Hospital Tailgate market", map);	
-        placeMarker(35.5548, -82.5978, "WNC Farmers Market", map);	    
-			}
-</script>
     
     <div id="map-canvas" style= "height: 600px; width: 600px;"></div>
     <div id="demo"></div>

@@ -18,17 +18,7 @@
   <script>
 			var lat;
 			var long;
-			var x;
-						
-		function 	getLocation()
-			{
-			x = document.getElementById("demo");
-			if (navigator.geolocation)
-				{
-				navigator.geolocation.getCurrentPosition(showmap);
-				}
-			else{x.innerHTML="Geolocation is not supported by this browser.";}
-			}
+
 		function showPosition(position)
 			{
 			x.innerHTML="Latitude: " + position.coords.latitude + 
@@ -40,17 +30,30 @@
 		function placeMarker(lat, long, title, map){
 
 			 var myLatlng = new google.maps.LatLng(lat,long);
-				
+
+       var infowindow = new google.maps.InfoWindow();
+
 				var marker = new google.maps.Marker({
 						position: myLatlng,
 						map: map,
 						title: title
   			});
+
+        infowindow.setContent(title);
+
+        google.maps.event.addListener(marker, 'mouseover', function(e) {   
+          infowindow.open(map, marker);
+        });
+
+        google.maps.event.addListener(marker, 'mouseout', function(e) {   
+          infowindow.close(map, marker);
+        });
 		}
+
 	</script>
   
   </head>
-  <body>
+  <body >
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">

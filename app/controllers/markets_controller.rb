@@ -1,6 +1,6 @@
 class MarketsController < ApplicationController
   def index
-    @markets = Market.all
+    @markets = Market.limit(10)
   end
 
   def list
