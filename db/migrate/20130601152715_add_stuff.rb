@@ -16,6 +16,8 @@ class AddStuff < ActiveRecord::Migration
       t.string :zip
       t.string :lat
       t.string :lon
+      t.text :schedule
+      
       t.boolean :credit
       t.boolean :wic
       t.boolean :wcash
@@ -25,20 +27,26 @@ class AddStuff < ActiveRecord::Migration
       t.timestamps
     end
     
+    create_table :notifications do |t|
+      t.belongs_to :subscription, :presence
+    end
+    
     create_table :presences do |t|
-      t.belongs_to :market, :vendor
-      t.date :available
+      t.belongs_to :participation
+      t.text :message
+      t.date :date
     end
     
     create_table :subscriptions do |t|
-      t.belongs_to :user, :market
-      t.boolean :sms
-      t.boolean :email
+      t.belongs_to :user, :participation
     end
     
     create_table :vendors do |t|
       t.belongs_to :user
       t.string :name
+      t.string :phone
+      t.text :description
+      t.text :products
       
       t.timestamps
     end

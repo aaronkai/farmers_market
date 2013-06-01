@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
     t.string   "zip"
     t.string   "lat"
     t.string   "lon"
+    t.text     "schedule"
     t.boolean  "credit"
     t.boolean  "wic"
     t.boolean  "wcash"
@@ -34,15 +35,20 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "notifications", :force => true do |t|
+    t.integer "subscription_id"
+    t.integer "presence_id"
+  end
+
   create_table "participations", :force => true do |t|
     t.integer "market_id"
     t.integer "vendor_id"
   end
 
   create_table "presences", :force => true do |t|
-    t.integer "market_id"
-    t.integer "vendor_id"
-    t.date    "available"
+    t.integer "participation_id"
+    t.text    "message"
+    t.date    "date"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -60,9 +66,7 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
 
   create_table "subscriptions", :force => true do |t|
     t.integer "user_id"
-    t.integer "market_id"
-    t.boolean "sms"
-    t.boolean "email"
+    t.integer "participation_id"
   end
 
   create_table "users", :force => true do |t|
@@ -90,8 +94,11 @@ ActiveRecord::Schema.define(:version => 20130601152715) do
   create_table "vendors", :force => true do |t|
     t.integer  "user_id"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.text     "description"
+    t.text     "products"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

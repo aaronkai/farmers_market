@@ -1,4 +1,19 @@
-     <script type="text/javascript">
+<script>
+$(document).ready(function(){
+getLocation();
+});
+</script>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to('Map view', root_path, :data => {:toggle=>"tab"}) %>
+  </li>
+  <li>
+    <%= link_to('List view', list_markets_path, :data => {:toggle=>"tab"}) %>
+  </li>
+</ul>
+
+
+<script type="text/javascript">
       function initialize() {
       	getLocation();
       }
@@ -16,13 +31,8 @@
         placeMarker(35.6024, -82.5542, "Greenlife Sunday Afternoon Local Market", map);	
 				placeMarker(35.5766, -82.5492, "Mission Hospital Tailgate market", map);	
         placeMarker(35.5548, -82.5978, "WNC Farmers Market", map);	    
-
 			}
-			
-			
-			
-			
-    </script>
+</script>
     
     <div id="map-canvas" style= "height: 600px; width: 600px;"></div>
     <div id="demo"></div>

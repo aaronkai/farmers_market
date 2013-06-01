@@ -10,3 +10,49 @@ body { padding-top: 60px; }
 	float: right;
 }
 */
+
+
+ul.resultslist {
+	list-style-type: none;
+	margin: 0; 
+	padding: 0;
+}
+
+ul.resultslist > li {
+	padding: 1em;
+}
+
+ul.resultslist > li:hover {
+	background-color: #fff;
+	cursor: pointer;
+}
+
+ul.resultslist > hr {
+	margin: 0;
+}
+
+div.results {
+	background-color: #eee;
+}
+
+div.details_page {
+	margin-bottom: 4em;
+}
+
+div.vendors_here {
+	padding: 1em;
+	background-color: #eee;
+}
+
+.labels {
+	display: block;
+	font-weight: bold;
+}
+
+.sub_labels {
+	font-style: italic;
+}
+
+.instructions {
+	font-size: .9em;
+}

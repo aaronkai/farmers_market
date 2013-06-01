@@ -1,9 +1,13 @@
 class MarketsController < ApplicationController
   def index
-    @vendors = Market.all
+    @markets = Market.all
+  end
+
+  def list
+  	@markets = Market.all
   end
   
   def show
-    @vendor = Market.find(params[:id])
+    @market = Market.find(params[:id])
   end
 end

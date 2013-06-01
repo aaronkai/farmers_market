@@ -1,6 +1,6 @@
 class Subscription < ActiveRecord::Base
   belongs_to :user
-  belongs_to :market
+  belongs_to :participation
   
-  attr_accessible :user_id, :market_id, :sms, :email
+  attr_accessible :user_id, :participation_id
 end

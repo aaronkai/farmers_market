@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to('Map view', root_path, :data => {:toggle=>"tab"}) %>
+  </li>
+  <li class="active">
+    <%= link_to('List view', list_markets_path, :data => {:toggle=>"tab"}) %>
+  </li>
+</ul>
+
+<h2>Showing markets near [city]</h2>
+<br />
+
+<div class="results">
+	<ul class="resultslist">
+		<% @markets.each do |market| %>
+		  <li><%= link_to market.name, market %></li>
+		  <hr />
+		<% end %>
+	</ul>
+</div>

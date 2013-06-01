@@ -6,10 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(email: 'test@me.com', password: 'testme', password_confirmation: 'testme')
+user   = User.create(email: 'user@test.com',   password: 'testme', password_confirmation: 'testme')
+v_user = User.create(email: 'vendor@test.com', password: 'testme', password_confirmation: 'testme')
 
 Market.import
-# Market.create(name: 'Test Market', address: '1 Main St, 28801')
-Vendor.create(name: "Joe's Veggies", user_id: user.id)
+Vendor.import
 
-Vendor.first.markets << Market.first
+# Market.create(name: 'Test Market', address: '1 Main St, 28801')
+# vendor = Vendor.create(name: "Joe's Veggies", user_id: v_user.id)
+# vendor.markets << Market.first
+# 
+# vendor = Vendor.first
+# user.participations << vendor.participations.first
+# 
+# vendor.participations.first.presences.create(message: "Will hack for food", date: Date.today)
