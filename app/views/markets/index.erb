@@ -3,6 +3,15 @@ $(document).ready(function(){
 getLocation();
 });
 </script>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to('Map view', root_path, :data => {:toggle=>"tab"}) %>
+  </li>
+  <li>
+    <%= link_to('List view', list_markets_path, :data => {:toggle=>"tab"}) %>
+  </li>
+</ul>
+
 <div id="mapholder"></div>
 <script>
 var x=document.getElementById("demo");
