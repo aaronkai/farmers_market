@@ -1,4 +1,53 @@
 <%= debug @vendor %>
-<% @vendor.markets.each do |market| %>
-<li><%= link_to market.name, market %></li>
-<% end %>
+
+<%= link_to('< Back to vendors list', vendors_path) %>
+
+
+<div class="details_page">
+
+	<h3><%= @vendor.name %></h3>
+
+	<span class="labels">Phone</span>
+	<% if @vendor.phone? %>
+		<%= @vendor.phone %>
+	<% else %>
+		none
+	<% end %>
+	<br /><br />
+
+	<span class="labels">Description</span>
+	<% if @vendor.description? %>
+		<%= @vendor.description %>
+	<% else %>
+		none
+	<% end %>
+	<br /><br />
+
+	<span class="labels">Products offered</span>
+	<% if @vendor.products? %>
+		<%= @vendor.products %>
+	<% else %>
+		Please contact farmer for details.
+	<% end %>
+	<br /><br />
+
+	<div class="vendors_here">
+		<h4>Possible markets for this vendor:</h4>
+		<span class="instructions">Click SUBSCRIBE next to a market to receive notifications when this vendor will be at the market.</span>
+		<br /><br />
+
+		<ul class="resultslist">
+			<hr />
+			<% @vendor.markets.each do |market| %>
+			<li>
+				<button type="button" class="btn btn-small btn-primary" data-toggle="button">
+					Subscribe
+				</button>
+				<%= link_to market.name, market %>
+			</li>
+			<hr />
+			<% end %>
+
+		</ul>
+
+</div>

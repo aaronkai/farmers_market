@@ -1,28 +1,85 @@
+
 <%= link_to('< Back to market list', list_markets_path) %>
 
-<h3><%= @market.name %></h3>
 
+<div class="details_page">
 
-<div class="row details_page">
+	<h3><%= @market.name %></h3>
+	<%= @market.street %><br />
+	<%= @market.city %>, <%= @market.state %> <%= @market.zip %><br /><br />
 
-	<div class="span6">
-		<%= @market.street %><br />
-		<%= @market.city %>, <%= @market.state %> <%= @market.zip %><br />
-		<%= @market.schedule %><br />
-	</div>
+	<span class="labels">Schedule</span>
+	<% if @market.schedule? %>
+		<%= @market.schedule %>
+	<% else %>
+		unavailable
+	<% end %>
+	<br /><br />
 
-	<div class="span1"></div>
+	<span class="labels">Website</span>
+	<% if @market.url? %>
+		<%= link_to(@market.url, @market.url) %>
+	<% else %>
+		none
+	<% end %>
+	<br /><br />
 
-	<div class="span5 vendors_here">
+	<span class="labels">Payments</span>
+		<span class="sub_labels">Cash: </span>Yes
+		<br />
+
+		<span class="sub_labels">Credit: </span>
+		<% if @market.credit? %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+		<br />
+		<span class="sub_labels">Supplemental Nutrition Assistance Program (SNAP): </span>
+		<% if @market.snap? %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+		<br />
+		<span class="sub_labels">WIC Farmers Market Nutrition Program (WIC-FMNP): </span>
+		<% if @market.wic? %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+		<br />
+		<span class="sub_labels">WIC Cash Value Vouchers: </span>
+		<% if @market.wcash? %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+		<br />
+		<span class="sub_labels">Senior Farmers Markets Nutrition Program (SFMNP): </span>
+		<% if @market.sfmnp? %>
+			Yes
+		<% else %>
+			No
+		<% end %>
+		<br />
+
+	<br />
+
+	<div class="vendors_here">
 		<h4>Vendors at this market</h4>
-		<ul class="marketlist">
+		<span class="instructions">Click SUBSCRIBE next to a vendor to receive notifications when the vendor will be at this market.</span>
+		<br /><br />
+		<ul class="resultslist">
+			<hr />
 			<% @market.vendors.each do |vendor| %>
 			<li>
-				<button type="button" class="btn btn-primary" data-toggle="button">
+				<button type="button" class="btn btn-small btn-primary" data-toggle="button">
 					Subscribe
 				</button>
 				<%= link_to vendor.name, vendor %>
 			</li>
+			<hr />
 			<% end %>
 		</ul>
 	</div>
