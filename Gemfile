@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.13'
-gem 'sqlite3'
 gem 'puma'
 gem 'rails_admin'
-gem 'pg'
 gem "devise"
 gem 'bootstrap-sass'
+#gem 'pg'
+gem 'sqlite3'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+<%= debug current_user %>
+<%= session["devise.facebook_data"] %>
 <%= yield %>
 
 </body>
