@@ -12,22 +12,22 @@ body { padding-top: 60px; }
 */
 
 
-ul.marketlist {
+ul.resultslist {
 	list-style-type: none;
 	margin: 0; 
 	padding: 0;
 }
 
-ul.marketlist > li {
+ul.resultslist > li {
 	padding: 1em;
 }
 
-ul.marketlist > li:hover {
+ul.resultslist > li:hover {
 	background-color: #fff;
 	cursor: pointer;
 }
 
-ul.marketlist > hr {
+ul.resultslist > hr {
 	margin: 0;
 }
 
@@ -42,4 +42,17 @@ div.details_page {
 div.vendors_here {
 	padding: 1em;
 	background-color: #eee;
+}
+
+.labels {
+	display: block;
+	font-weight: bold;
+}
+
+.sub_labels {
+	font-style: italic;
+}
+
+.instructions {
+	font-size: .9em;
 }

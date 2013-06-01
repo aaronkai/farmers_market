@@ -1,4 +1,16 @@
-In vendors controller:
-<% @vendors.each do |vendor| %>
-  <li><%= link_to vendor.name, vendor %></li>
-<% end %>
+<h2>Showing vendors near [city]</h2>
+<br />
+
+<div class="results">
+	<ul class="resultslist">
+		<% @vendors.each do |vendor| %>
+		  <li>
+		  	<button type="button" class="btn btn-small btn-primary" data-toggle="button">
+				Subscribe
+			</button>
+		  	<%= link_to vendor.name, vendor %>
+		  </li>
+		  <hr />
+		<% end %>
+	</ul>
+</div>
