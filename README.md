@@ -4,7 +4,7 @@
 
 FarmersFeed.us is a Ruby on Rails 3.2 app with Postgres database, using Devise, Omniauth-Facebook, Twitter Bootstrapp (Sass), the Google Maps API and a sprinkle of CoffeeScript. Made for the National Day of Civic Hacking "Hack for Food" Asheville hackathon, organized by Code for Asheville (http://codeforasheville.org)
 
-A demo is online here for the moment: http://farmersfeedus-codeforasheville.pogoapp.com/
+A live demo is online here: http://farmersfeed.us
 
 ## Setup
 1. bundle install
