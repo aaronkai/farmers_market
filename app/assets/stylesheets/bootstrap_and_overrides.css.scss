@@ -5,13 +5,78 @@ body { padding-top: 60px; }
 
 .active { font-weight: bold; }
 
-/*
-.navbar > .nav > div > ul.nav {
+body {
+	background-color: #f7f4e0;
+}
+
+/**** google map ****/
+/* this is what fixed the problem with the distorted infowindows */
+#map-canvas img {
+	max-width: inherit;
+}
+
+.info_name {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+.info_address {
+	font-size: .9em;
+}
+
+/**** top nav bar ****/
+.navbar a.brand {
+	color: #333;
+	font-weight: bold;
+}
+
+.navbar > nav {
+	background-color: #f6f1b1;
+	background-image: -moz-linear-gradient(top, #e1d538, #f6f1b1);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e1d538), to(#f6f1b1));
+	background-image: -webkit-linear-gradient(top, #e1d538, #f6f1b1);
+	background-image: -o-linear-gradient(top, #e1d538, #f6f1b1);
+	background-image: linear-gradient(to bottom, #e1d538, #f6f1b1);
+	border: 1px solid #d5d80e;
+}
+
+ul.nav#main_nav {
 	float: right;
 }
-*/
+
+ul.nav#main_nav > li > a {
+	padding-left: 1.25em;
+	padding-right: 1.25em;
+	font-size: 1.4em;
+	color: #1c6027;
+}
+
+ul.nav#main_nav > li > a:hover, ul.nav.nav-tabs > li > a:hover {
+	background-color: rgba(244,240,197,.4);
+}
+
+/**** menu to toggle between map and list view ****/
+ul.nav.nav-tabs > li > a {
+	font-size: 1em;
+	color: #1c6027;
+}
+
+/**** whatever's on the far right of the top nav ****/
+ul.nav#main_nav > li:last-child > a {
+	padding-right: 0em;
+}
+
+/**** logout, edit account, sign in with facebook ****/
+ul.nav#main_nav > li.user_options > a {
+	font-size: .9em;
+}
+
+ul.nav#main_nav > li.active > a, ul.nav.nav-tabs > li.active > a {
+	background-color: rgba(216,200,10,.4);
+}
 
 
+/**** markets and vendors lists ****/
 ul.resultslist {
 	list-style-type: none;
 	margin: 0; 
@@ -19,11 +84,12 @@ ul.resultslist {
 }
 
 ul.resultslist > li {
-	padding: 1em;
+	margin-left: 1em;
+	padding: 1em .5em;
 }
 
 ul.resultslist > li:hover {
-	background-color: #fff;
+	background-color: rgba(216,200,10,.4);
 	cursor: pointer;
 }
 
@@ -32,7 +98,6 @@ ul.resultslist > hr {
 }
 
 div.results {
-	background-color: #eee;
 	padding-top: 1em;
 }
 
@@ -40,10 +105,6 @@ div.details_page, div#map-canvas, div.results {
 	margin-bottom: 4em;
 }
 
-div.vendors_here {
-	padding: 1em;
-	background-color: #eee;
-}
 
 .labels {
 	display: block;
@@ -54,16 +115,27 @@ div.vendors_here {
 	font-style: italic;
 }
 
-.instructions {
-	font-size: .9em;
-}
 
 span.address, span.schedule, span.description {
 	font-size: .9em;
 }
 
 .inlist {
-	margin-left: 1em;
+	margin-left: 3em;
+	padding-bottom: 1em;
+}
+
+.instructions {
 	color: #666;
 	font-size: 1.2em;
+}
+
+.instructions_details {
+	color: #666;
+	font-size: 1em;
+	font-style: italic;
+}
+
+.subscribebtn {
+	margin-right: 1em;
 }

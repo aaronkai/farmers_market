@@ -1,23 +1,23 @@
 <%= link_to "Farmers Feed Us", root_path, :class => 'brand' %>
-<ul class="nav">
-    <li>
-      <%= link_to('MARKETS', root_path) %>
+<ul class="nav" id="main_nav">
+    <li id="nav_markets">
+      <%= link_to('MARKETS', markets_path) %>
     </li>
-    <li>
+    <li id="nav_vendors">
       <%= link_to('VENDORS', vendors_path) %>
     </li>
   <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
-    </li>
-  <% else %>
-    <li>
-		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+    <li class="user_options" id="nav_editaccount">
+    <%= link_to('Edit account', edit_user_registration_path) %>
     </li>
   <% end %>
   <% if user_signed_in? %>
-    <li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
+    <li class="user_options" id="nav_logout">
+    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
+    </li>
+  <% else %>
+    <li class="user_options" id="nav_fb">
+		<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
     </li>
   <% end %>
 </ul>

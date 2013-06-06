@@ -1,5 +1,11 @@
+<script>
+	$('#main_nav').children('li').removeClass('active');
+	$('#nav_vendors').addClass('active');
+</script>
 
-<%= link_to('< Back to vendors list', vendors_path) %>
+<span class="breadcrumbs"><%= link_to('Home', root_path) %> › <%= link_to('Vendors', vendors_path) %> › Vendor details for <%= @vendor.name %>
+</span>
+<hr />
 
 
 <div class="details_page">
@@ -30,18 +36,20 @@
 	<% end %>
 	<br /><br />
 
-	<div class="vendors_here">
-		<h4>Possible markets for this vendor:</h4>
-		<span class="instructions">Click SUBSCRIBE next to a market to receive notifications when this vendor will be at the market.</span>
-		<br /><br />
+	<div class="results">
+		<div class="row">
+			<span class="span12"><h4>Possible markets for this vendor:</h4></span>
+			<span class="span12 instructions_details">Click SUBSCRIBE next to a market to receive notifications when this vendor will be at the market.</span>
+		</div>
+		<br />
 
 		<ul class="resultslist">
 			<hr />
 			<% @vendor.participations.each do |participation| %>
 			<%- market = participation.market %>
 			<li>
-		  <button style="<%= "display:none" unless participation.subscribed?(current_user) %>" type="button" class="btn btn-primary unsubscribe" data-toggle="button" data-id="<%= participation.id %>">Unsubscribe</button>
-			<button style="<%= "display:none" if participation.subscribed?(current_user) %>" type="button" class="btn btn-primary subscribe" data-toggle="button" data-id="<%= participation.id %>">Subscribe</button>
+		  <button style="<%= "display:none" unless participation.subscribed?(current_user) %>" type="button" class="btn btn-primary unsubscribe subscribebtn" data-toggle="button" data-id="<%= participation.id %>">Unsubscribe</button>
+			<button style="<%= "display:none" if participation.subscribed?(current_user) %>" type="button" class="btn btn-primary subscribe subscribebtn" data-toggle="button" data-id="<%= participation.id %>">Subscribe</button>
 				<%= link_to market.name, market %>
 			</li>
 			<hr />

@@ -1,13 +1,18 @@
+<script>
+	$('#main_nav').children('li').removeClass('active');
+	$('#nav_markets').addClass('active');
+</script>
+
 <ul class="nav nav-tabs">
   <li>
-    <%= link_to('Map view', root_path, :data => {:toggle=>"tab"}) %>
+    <%= link_to('Map view', root_path) %>
   </li>
   <li class="active">
-    <%= link_to('List view', list_markets_path, :data => {:toggle=>"tab"}) %>
+    <%= link_to('List view', list_markets_path) %>
   </li>
 </ul>
 
-<h2>Showing markets near [city]</h2>
+<h2>Showing nearby farmers markets</h2>
 <br />
 
 <div class="results">

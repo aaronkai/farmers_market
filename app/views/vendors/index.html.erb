@@ -1,16 +1,25 @@
-<h2>Showing vendors near [city]</h2>
+<script>
+	$('#main_nav').children('li').removeClass('active');
+	$('#nav_vendors').addClass('active');
+</script>
+
+<span class="breadcrumbs"><%= link_to('Home', root_path) %> › Vendors
+</span>
+<hr />
+
+<h2>Showing nearby vendors</h2>
 <br />
 
 <div class="results">
+	<div class="row ">
+		<span class="span12 instructions inlist">Click SUBSCRIBE to receive all notifications from a vendor.</span>
+	</div>
 	<ul class="resultslist">
-		<li class="row inlist">
-			<span class="instructions">Click SUBSCRIBE next to a market to receive notifications when this vendor will be at the market.</span>
-		</li>
 		<hr />
 		<% @vendors.each do |vendor| %>
 		  <li class="row">
 		  	<span class="span5">
-		  		<button type="button" class="btn btn-small btn-primary" data-toggle="button">
+		  		<button type="button" class="btn btn-small btn-primary subscribebtn" data-toggle="button">
 					Subscribe
 				</button>
 		  		<%= link_to vendor.name, vendor %>

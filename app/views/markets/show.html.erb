@@ -1,5 +1,11 @@
+<script>
+	$('#main_nav').children('li').removeClass('active');
+	$('#nav_markets').addClass('active');
+</script>
 
-<%= link_to('< Back to market list', list_markets_path) %>
+<span class="breadcrumbs"><%= link_to('Home', root_path) %> › <%= link_to('Markets', markets_path) %> (<%= link_to('map', markets_path) %> / <%= link_to('list', list_markets_path) %>) › Market details for <%= @market.name %>
+</span>
+<hr />
 
 
 <div class="details_page">
@@ -66,17 +72,21 @@
 
 	<br />
 
-	<div class="vendors_here">
-		<h4>Vendors at this market</h4>
-		<span class="instructions">Click SUBSCRIBE next to a vendor to receive notifications when the vendor will be at this market.</span>
-		<br /><br />
+	
+	<div class="results">
+		<div class="row">
+			<span class="span12"><h4>Vendors at this market</h4></span>
+			<span class="span12 instructions_details">Click SUBSCRIBE to receive notifications when the vendor will be at this market.</span>
+		</div>
+		<br />
+
 		<ul class="resultslist">
 			<hr />
 			<% @market.participations.each do |participation| %>
 			<%- vendor = participation.vendor %>
 			<li>
-		  <button style="<%= "display:none" unless participation.subscribed?(current_user) %>" type="button" class="btn btn-primary unsubscribe" data-toggle="button" data-id="<%= participation.id %>">Unsubscribe</button>
-			<button style="<%= "display:none" if participation.subscribed?(current_user) %>" type="button" class="btn btn-primary subscribe" data-toggle="button" data-id="<%= participation.id %>">Subscribe</button>
+		  <button style="<%= "display:none" unless participation.subscribed?(current_user) %>" type="button" class="btn btn-primary unsubscribe subscribebtn" data-toggle="button" data-id="<%= participation.id %>">Unsubscribe</button>
+			<button style="<%= "display:none" if participation.subscribed?(current_user) %>" type="button" class="btn btn-primary subscribe subscribebtn" data-toggle="button" data-id="<%= participation.id %>">Subscribe</button>
 				<%= link_to vendor.name, vendor %>
 			</li>
 			<hr />

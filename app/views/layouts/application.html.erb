@@ -27,7 +27,7 @@
 			long = position.coords.longitude;
 			}
 			
-		function placeMarker(lat, long, title, map){
+		function placeMarker(lat, long, title, address, city, state, market, map){
 
 			 var myLatlng = new google.maps.LatLng(lat,long);
 
@@ -36,10 +36,14 @@
 				var marker = new google.maps.Marker({
 						position: myLatlng,
 						map: map,
-						title: title
+						title: title, 
+            address: address, 
+            city: city, 
+            state: state,
+            market: market
   			});
 
-        infowindow.setContent(title);
+        infowindow.setContent('<div class="info_name">'+title+'</div><div class="info_address">'+address+'<br />'+city+', '+state+'</div>');
 
         google.maps.event.addListener(marker, 'mouseover', function(e) {   
           infowindow.open(map, marker);
@@ -47,6 +51,16 @@
 
         google.maps.event.addListener(marker, 'mouseout', function(e) {   
           infowindow.close(map, marker);
+        });
+
+        google.maps.event.addListener(marker, 'click', function(e) {   
+          //getting the clicked market url from the market var... probably a better way to do this
+          var market_url = market.substring(market.lastIndexOf('="')+1,market.lastIndexOf('">'));
+          //don't know why the first quotes stick around but this gets rid of them
+          while(market_url.charAt(0) === '"')
+            market_url = market_url.substr(1);
+
+          window.location = market_url;
         });
 		}
 

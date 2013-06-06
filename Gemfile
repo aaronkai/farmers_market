@@ -6,7 +6,7 @@ gem 'rails_admin'
 gem "devise"
 gem 'bootstrap-sass'
 gem 'pg'
-# gem 'sqlite3'
+gem 'sqlite3'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
